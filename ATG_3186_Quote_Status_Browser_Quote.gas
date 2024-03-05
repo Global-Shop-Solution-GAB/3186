@@ -1,0 +1,76 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+Variable.Local.sRet.Declare(String)
+Variable.Local.sMsg.Declare(String)
+Variable.Local.sTitles.Declare(String)
+Variable.Local.iWidths.Declare(Long)
+Variable.Local.sSql.Declare(String)
+Variable.Local.sSqlQ.Declare(String)
+V.Local.sQuote.Declare(String)
+Variable.Local.iCT.Declare(String)
+Variable.Local.siCT.Declare(String)
+Variable.Local.sAlign.Declare(String)
+Variable.Local.iAlign.Declare(Long)
+
+
+'F.Intrinsic.Debug.ShowCallerInfo
+
+Function.ODBC.Connection!Conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.String.Concat("Select * from ATG_3186_QTE_STATUS WHERE COMPLETE = 0 and CUSTOMER = '",V.Passed.000006,"'",V.Local.sSql)
+Function.ODBC.Connection!Conx.OpenRecordsetRO("qth",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.Conx!qth.EOF,"<>",True)
+	F.Intrinsic.String.Concat("Select customer,customer_name,cust_jobno,matl_quotedby,quote_no,comments from ATG_3186_QTE_STATUS WHERE complete = 0 and CUSTOMER = '",V.Passed.000006,"'",V.Local.sSqlQ)
+	Function.ODBC.Connection!Conx.OpenRecordsetRW("atg",V.Local.sSqlQ)
+	Function.Intrinsic.String.Concat("Select count(*) as iCT from ATG_3186_QTE_STATUS WHERE CUSTOMER = '",V.Passed.000006,"'",V.Local.siCT)
+	Function.ODBC.Connection!Conx.OpenRecordsetRO("ict",V.Local.siCT)
+	Function.Intrinsic.String.LPad(V.Passed.000003,"0",7,V.Local.sQuote)
+	Function.Intrinsic.Control.If(V.ODBC.Conx!ict.FieldValLong!iCT,">",1)
+		Function.Intrinsic.String.Split("Customer*!*Name*!*Customer JobNo*!*Material Quoted By*!*Quote No.*!*Comments","*!*",V.Local.sTitles)
+		Function.Intrinsic.String.Split("1000*!*2800*!*2000*!*1600*!*1000*!*6000","*!*",V.Local.iWidths)
+
+		Function.Intrinsic.UI.Browser("Select Quote Customer","conx",V.Local.sSqlQ,V.Local.sTitles,V.Local.iWidths,14000,7000,V.Local.sAlign,V.Local.iAlign,V.Local.sRet)
+		Function.Intrinsic.Control.If(V.Local.sRet,"<>","***CANCEL***")
+			Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+			V.Local.sAtgm.Declare(String)
+			F.Intrinsic.String.Trim(V.Local.sRet(2),V.Local.sRet(2))
+			F.Intrinsic.String.Replace(V.Local.sRet(2),"'","''",V.Local.sRet(2))
+			F.Intrinsic.string.Trim(V.Local.sRet(5),V.Local.sRet(5))
+			F.Intrinsic.String.Replace(V.Local.sRet(5),"'","''",V.Local.sRet(5))
+			F.Intrinsic.String.Replace(V.Local.sRet(0),"'","''",V.Local.sRet(0))
+			F.Intrinsic.String.Concat("Select * from ATG_3186_QTE_STATUS where complete = 0 and customer='",V.Local.sRet(0),"' and cust_jobno='",V.Local.sRet(2),"' and comments='",V.Local.sRet(5),"'",V.Local.sAtgm)
+			F.ODBC.Connection!Conx.OpenRecordsetRW("atg_multi",V.Local.sAtgm)
+			F.Intrinsic.Control.If(V.ODBC.Conx!atg_multi.EOF,"<>",True)
+				F.ODBC.Conx!atg_multi.Set!QUOTE_NO(V.Local.sQuote)
+				F.ODBC.Conx!atg_multi.Update
+				F.ODBC.Conx!atg_multi.Close
+			F.Intrinsic.Control.EndIf
+		Function.Intrinsic.Control.EndIf
+	Function.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.ODBC.Conx!atg.EOF,"<>",True)
+			F.ODBC.Conx!atg.Set!QUOTE_NO(V.Local.sQuote)
+			F.ODBC.Conx!atg.Update
+			F.Intrinsic.UI.Msgbox("Quote Number updated in Status Form!","Quote Update")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	F.ODBC.Conx!qth.Close
+	F.ODBC.Conx!ict.Close
+	F.ODBC.Conx!atg.Close
+	F.ODBC.Connection!Conx.Close
+F.Intrinsic.Control.Else
+	'quick quote may not have router record
+	F.Intrinsic.UI.Msgbox("Customer record not found in Quote Status Form, please add record","No Quote Status Record first")
+	F.ODBC.Conx!qth.Close
+	F.ODBC.Connection!Conx.Close
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+
