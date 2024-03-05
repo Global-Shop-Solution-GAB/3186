@@ -1,0 +1,731 @@
+Program.Sub.ScreenSU.Start
+gui.QuoteStatus..create
+gui.QuoteStatus..caption("Quote Status")
+gui.QuoteStatus..size(11550,6375)
+gui.QuoteStatus..position(0,0)
+gui.QuoteStatus..event(unload,quotestatus_unload)
+gui.QuoteStatus..alwaysontop(False)
+gui.QuoteStatus..fontname("Arial")
+gui.QuoteStatus..fontsize(8)
+gui.QuoteStatus..forecolor(0)
+gui.QuoteStatus..fontstyle(,,,,)
+gui.QuoteStatus..BackColor(-2147483633)
+gui.QuoteStatus..controlbox(True)
+gui.QuoteStatus..maxbutton(True)
+gui.QuoteStatus..minbutton(True)
+gui.QuoteStatus..mousepointer(0)
+gui.QuoteStatus..moveable(True)
+gui.QuoteStatus..sizeable(True)
+gui.QuoteStatus..ShowInTaskBar(True)
+gui.QuoteStatus..titlebar(True)
+gui.QuoteStatus.Custlbl.create(label,"Customer",True,780,255,1,200,380,True,0,Arial,8,-2147483633,0)
+gui.QuoteStatus.txtCust.create(textbox,"",True,1215,300,0,200,600,True,0,Arial,8,-2147483643,1)
+gui.QuoteStatus.txtCust.maxLength(6)
+gui.QuoteStatus.cmdCust.create(button)
+gui.QuoteStatus.cmdCust.caption("")
+gui.QuoteStatus.cmdCust.visible(True)
+gui.QuoteStatus.cmdCust.size(360,315)
+gui.QuoteStatus.cmdCust.zorder(0)
+gui.QuoteStatus.cmdCust.position(1455,590)
+gui.QuoteStatus.cmdCust.enabled(True)
+gui.QuoteStatus.cmdCust.fontname("Arial")
+gui.QuoteStatus.cmdCust.fontsize(8)
+gui.QuoteStatus.cmdCust.event(click,cmdcust_click)
+gui.QuoteStatus.txtCstJbNo.create(textbox,"",True,2040,300,0,1930,600,True,0,Arial,8,-2147483643,1)
+gui.QuoteStatus.txtCstJbNo.maxLength(30)
+gui.QuoteStatus.lblCstJbNo.create(label,"Job No.",True,1245,255,1,1950,380,True,0,Arial,8,-2147483633,0)
+gui.QuoteStatus.lblUsrRcv.create(label,"Received By",True,975,255,1,4130,380,True,0,Arial,8,-2147483633,0)
+gui.QuoteStatus.dropdownlistUsQtBy.create(dropdownlist)
+gui.QuoteStatus.dropdownlistUsQtBy.visible(True)
+gui.QuoteStatus.dropdownlistUsQtBy.size(1455,330)
+gui.QuoteStatus.dropdownlistUsQtBy.zorder(0)
+gui.QuoteStatus.dropdownlistUsQtBy.position(9425,600)
+gui.QuoteStatus.dropdownlistUsQtBy.enabled(True)
+gui.QuoteStatus.dropdownlistUsQtBy.fontname("Arial")
+gui.QuoteStatus.dropdownlistUsQtBy.fontsize(8)
+gui.QuoteStatus.dropdownlistUsQtBy.event(click,dropdownlistusqtby_click)
+gui.QuoteStatus.lblQtDue.create(label,"Quote Due Date",True,1200,255,1,5635,380,True,0,Arial,8,-2147483633,0)
+gui.QuoteStatus.datepickerQtDtDue.create(datepicker)
+gui.QuoteStatus.datepickerQtDtDue.visible(True)
+gui.QuoteStatus.datepickerQtDtDue.size(2160,300)
+gui.QuoteStatus.datepickerQtDtDue.zorder(0)
+gui.QuoteStatus.datepickerQtDtDue.position(5645,600)
+gui.QuoteStatus.datepickerQtDtDue.enabled(True)
+gui.QuoteStatus.datepickerQtDtDue.checkbox(False)
+gui.QuoteStatus.lblSPQtg.create(label,"Salesperson",True,1365,255,1,7875,380,True,0,Arial,8,-2147483633,0)
+gui.QuoteStatus.dropdownlistSP.create(dropdownlist)
+gui.QuoteStatus.dropdownlistSP.visible(True)
+gui.QuoteStatus.dropdownlistSP.size(1455,330)
+gui.QuoteStatus.dropdownlistSP.zorder(0)
+gui.QuoteStatus.dropdownlistSP.position(7875,600)
+gui.QuoteStatus.dropdownlistSP.enabled(True)
+gui.QuoteStatus.dropdownlistSP.fontname("Arial")
+gui.QuoteStatus.dropdownlistSP.fontsize(8)
+gui.QuoteStatus.dropdownlistSP.event(click,dropdownlistsp_click)
+gui.QuoteStatus.lblUsrMat.create(label,"Material Quoted By",True,1395,255,1,9430,380,True,0,Arial,8,-2147483633,0)
+gui.QuoteStatus.lblXtrFld.create(label,"Extra Field",True,795,255,1,200,1520,True,0,Arial,8,-2147483633,0)
+gui.QuoteStatus.txtXtrFld.create(textbox,"",True,3930,300,0,200,1735,True,0,Arial,8,-2147483643,1)
+gui.QuoteStatus.txtXtrFld.maxLength(30)
+gui.QuoteStatus.lblComments.create(label,"Comments",True,840,255,1,200,2410,True,0,Arial,8,-2147483633,0)
+gui.QuoteStatus.mltxtComments.create(textboxm)
+gui.QuoteStatus.mltxtComments.text("")
+gui.QuoteStatus.mltxtComments.visible(True)
+gui.QuoteStatus.mltxtComments.size(6195,1425)
+gui.QuoteStatus.mltxtComments.zorder(0)
+gui.QuoteStatus.mltxtComments.position(200,2620)
+gui.QuoteStatus.mltxtComments.enabled(True)
+gui.QuoteStatus.mltxtComments.alignment(0)
+gui.QuoteStatus.mltxtComments.fontname("Arial")
+gui.QuoteStatus.mltxtComments.fontsize(8)
+gui.QuoteStatus.mltxtComments.BackColor(-2147483643)
+gui.QuoteStatus.cmdActReq.create(button)
+gui.QuoteStatus.cmdActReq.caption("&Launch Active Requests")
+gui.QuoteStatus.cmdActReq.visible(True)
+gui.QuoteStatus.cmdActReq.size(2160,375)
+gui.QuoteStatus.cmdActReq.zorder(0)
+gui.QuoteStatus.cmdActReq.position(1175,5100)
+gui.QuoteStatus.cmdActReq.enabled(True)
+gui.QuoteStatus.cmdActReq.fontname("Arial")
+gui.QuoteStatus.cmdActReq.fontsize(8)
+gui.QuoteStatus.cmdActReq.event(click,cmdactreq_click)
+gui.QuoteStatus.cmdSave.create(button)
+gui.QuoteStatus.cmdSave.caption("&Save")
+gui.QuoteStatus.cmdSave.visible(True)
+gui.QuoteStatus.cmdSave.size(855,375)
+gui.QuoteStatus.cmdSave.zorder(0)
+gui.QuoteStatus.cmdSave.position(205,5100)
+gui.QuoteStatus.cmdSave.enabled(True)
+gui.QuoteStatus.cmdSave.fontname("Arial")
+gui.QuoteStatus.cmdSave.fontsize(8)
+gui.QuoteStatus.cmdSave.event(click,cmdsave_click)
+gui.QuoteStatus.dlRcvBy.create(dropdownlist)
+gui.QuoteStatus.dlRcvBy.visible(True)
+gui.QuoteStatus.dlRcvBy.size(1455,330)
+gui.QuoteStatus.dlRcvBy.zorder(0)
+gui.QuoteStatus.dlRcvBy.position(4105,600)
+gui.QuoteStatus.dlRcvBy.enabled(True)
+gui.QuoteStatus.dlRcvBy.fontname("Arial")
+gui.QuoteStatus.dlRcvBy.fontsize(8)
+gui.QuoteStatus.dlRcvBy.event(click,dlrcvby_click)
+gui.QuoteStatus.Prospchk.create(checkbox)
+gui.QuoteStatus.Prospchk.caption("Select if Prospect")
+gui.QuoteStatus.Prospchk.visible(True)
+gui.QuoteStatus.Prospchk.size(1935,255)
+gui.QuoteStatus.Prospchk.zorder(0)
+gui.QuoteStatus.Prospchk.position(200,90)
+gui.QuoteStatus.Prospchk.enabled(True)
+gui.QuoteStatus.Prospchk.alignment(0)
+gui.QuoteStatus.Prospchk.fontname("Arial")
+gui.QuoteStatus.Prospchk.fontsize(8)
+gui.QuoteStatus.Prospchk.event(click,chkprospect_click)
+gui.QuoteStatus.cmdDelete.create(button)
+gui.QuoteStatus.cmdDelete.caption("&Delete Record")
+gui.QuoteStatus.cmdDelete.visible(True)
+gui.QuoteStatus.cmdDelete.size(1245,375)
+gui.QuoteStatus.cmdDelete.zorder(0)
+gui.QuoteStatus.cmdDelete.position(3425,5095)
+gui.QuoteStatus.cmdDelete.enabled(True)
+gui.QuoteStatus.cmdDelete.fontname("Arial")
+gui.QuoteStatus.cmdDelete.fontsize(8)
+gui.QuoteStatus.cmdDelete.event(click,cmddelete_click)
+gui.QuoteStatus.txtCust.tabstop(True)
+gui.QuoteStatus.txtCust.tabindex(1)
+gui.QuoteStatus.txtCstJbNo.tabstop(True)
+gui.QuoteStatus.txtCstJbNo.tabindex(2)
+gui.QuoteStatus.dlRcvBy.tabstop(True)
+gui.QuoteStatus.dlRcvBy.tabindex(3)
+gui.QuoteStatus.datepickerQtDtDue.tabstop(True)
+gui.QuoteStatus.datepickerQtDtDue.tabindex(4)
+gui.QuoteStatus.dropdownlistSP.tabstop(True)
+gui.QuoteStatus.dropdownlistSP.tabindex(5)
+gui.QuoteStatus.dropdownlistUsQtBy.tabstop(True)
+gui.QuoteStatus.dropdownlistUsQtBy.tabindex(6)
+gui.QuoteStatus.txtXtrFld.tabstop(True)
+gui.QuoteStatus.txtXtrFld.tabindex(7)
+gui.QuoteStatus.mltxtComments.tabstop(True)
+gui.QuoteStatus.mltxtComments.tabindex(8)
+gui.QuoteStatus.cmdSave.tabstop(True)
+gui.QuoteStatus.cmdSave.tabindex(9)
+gui.QuoteStatus.cmdActReq.tabstop(True)
+gui.QuoteStatus.cmdActReq.tabindex(10)
+
+
+
+gui.FlexGridForm..create
+gui.FlexGridForm..caption("Active Quotes")
+gui.FlexGridForm..size(19290,9705)
+gui.FlexGridForm..position(0,0)
+gui.FlexGridForm..event(unload,flexgridform_unload)
+gui.FlexGridForm..alwaysontop(False)
+gui.FlexGridForm..fontname("Arial")
+gui.FlexGridForm..fontsize(8)
+gui.FlexGridForm..forecolor(0)
+gui.FlexGridForm..fontstyle(,,,,)
+gui.FlexGridForm..BackColor(-2147483633)
+gui.FlexGridForm..controlbox(True)
+gui.FlexGridForm..maxbutton(True)
+gui.FlexGridForm..minbutton(True)
+gui.FlexGridForm..mousepointer(0)
+gui.FlexGridForm..moveable(True)
+gui.FlexGridForm..sizeable(True)
+gui.FlexGridForm..ShowInTaskBar(True)
+gui.FlexGridForm..titlebar(True)
+gui.FlexGridForm.gsflexgrid.create(gsflexgrid)
+gui.FlexGridForm.gsflexgrid.FixedRows(0)
+gui.FlexGridForm.gsflexgrid.FixedCols(0)
+gui.FlexGridForm.gsflexgrid.visible(True)
+gui.FlexGridForm.gsflexgrid.size(18650,7815)
+gui.FlexGridForm.gsflexgrid.zorder(0)
+gui.FlexGridForm.gsflexgrid.position(200,200)
+gui.FlexGridForm.gsflexgrid.enabled(True)
+gui.FlexGridForm.gsflexgrid.event(mouseup,gsflexgrid_mouseup)
+gui.FlexGridForm.gsflexgrid.event(cellenter,gsflexgrid_cellenter)
+gui.FlexGridForm.cmdPostData.create(button)
+gui.FlexGridForm.cmdPostData.caption("&Post Changes")
+gui.FlexGridForm.cmdPostData.visible(True)
+gui.FlexGridForm.cmdPostData.size(2100,375)
+gui.FlexGridForm.cmdPostData.zorder(0)
+gui.FlexGridForm.cmdPostData.position(200,8400)
+gui.FlexGridForm.cmdPostData.enabled(True)
+gui.FlexGridForm.cmdPostData.fontname("Arial")
+gui.FlexGridForm.cmdPostData.fontsize(8)
+gui.FlexGridForm.cmdPostData.event(click,cmdpostdata_click)
+
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+
+Variable.Global.Prosp.Declare(Long,0)
+Function.Intrinsic.Debug.SetScriptVersion("1.0.137","True")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+Variable.Local.sCustNo.Declare(String)
+Variable.Local.sCustJbNo.Declare(String)
+Variable.Local.sUsrRec.Declare(String)
+Variable.Local.dQtDateDue.Declare(Date)
+Variable.Local.sCurrQtngSP.Declare(String)
+Variable.Local.sUsrMatl.Declare(String)
+Variable.Local.sXtraFld.Declare(String)
+Variable.Local.sComment.Declare(String)
+Variable.Local.sQtNo.Declare(String)
+Variable.Local.sUser.Declare(String)
+Variable.Local.sSP.Declare(String)
+Variable.Local.iC.Declare(Long)
+
+Gui.QuoteStatus..Show
+
+Gui.QuoteStatus.datepickerQtDtDue.Format(3)
+Gui.QuoteStatus.datepickerQtDtDue.CustomFormat("MM/dd/yyyy hh:mmtt")
+
+Gui.QuoteStatus.Prospchk.Value(0)
+Function.ODBC.Connection!Conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+'Function.ODBC.Connection!Conx.OpenConnection("Global_PLA","Master","master")
+Function.ODBC.Connection!Conx.OpenRecordsetRO("rstSP","Select distinct salesperson_code from V_SALESPEOPLE")
+Function.Intrinsic.Control.DoUntil(V.ODBC.Conx!rstSP.EOF,"=",True)
+	Gui.QuoteStatus.dropdownlistSP.AddItem(V.ODBC.Conx!rstSP.FieldValTrim!SALESPERSON_CODE)
+	F.ODBC.Conx!rstSP.MoveNext
+Function.Intrinsic.Control.Loop
+
+Function.Global.Security.GetAllUsers(V.Caller.CompanyCode,V.Local.sUser)
+Function.Intrinsic.String.Split(V.Local.sUser,"*!*",V.Local.sUser)
+Function.Intrinsic.Control.For(V.Local.iC,V.Local.sUser.LBound,V.Local.sUser.UBound,1)
+	Gui.QuoteStatus.dropdownlistUsQtBy.AddItem(V.Local.sUser(V.Local.iC))
+	Gui.QuoteStatus.dlRcvBy.AddItem(V.Local.sUser(V.Local.iC))
+Function.Intrinsic.Control.Next(V.Local.iC)
+
+
+
+
+
+
+
+
+
+
+Program.Sub.Main.End
+
+
+program.sub.cmdcust_click.start
+Variable.Local.sRet.Declare(String)
+Variable.Local.sMsg.Declare(String)
+Variable.Local.sTitles.Declare(String)
+Variable.Local.iWidths.Declare(Long)
+
+
+Function.Intrinsic.Control.If(V.Screen.QuoteStatus!Prospchk.Value,"=",0)
+	Function.Intrinsic.String.Split("Customer*!*Name*!*City*!*State","*!*",V.Local.sTitles)
+	Function.Intrinsic.String.Split("1000*!*3000*!*2000*!*800","*!*",V.Local.iWidths)
+
+	Function.Intrinsic.UI.Browser("Select a Customer","conx","Select Customer,name_customer,City,State from V_CUSTOMER_MASTER order by name_customer",V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+	Function.Intrinsic.Control.If(V.Local.sRet,"<>","***CANCEL***")
+		Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.QuoteStatus.txtCust.Text(V.Local.sRet(0))
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.Else
+	Function.Intrinsic.String.Split("Prospect*!*Name*!*City*!*State","*!*",V.Local.sTitles)
+	Function.Intrinsic.String.Split("1000*!*3000*!*2000*!*800","*!*",V.Local.iWidths)
+
+	Function.Intrinsic.UI.Browser("Select a Prospect","conx","Select prospect,name_prospect,City,State from V_PROSPECT_MASTER order by name_prospect",V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+	Function.Intrinsic.Control.If(V.Local.sRet,"<>","***CANCEL***")
+		Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.QuoteStatus.txtCust.Text(V.Local.sRet(0))
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndIf
+
+
+
+program.sub.cmdcust_click.end
+
+
+program.sub.dropdownlistsp_click.start
+
+program.sub.dropdownlistsp_click.end
+
+
+program.sub.dropdownlistusqtby_click.start
+
+program.sub.dropdownlistusqtby_click.end
+
+
+program.sub.cmdaddqt_click.start
+
+
+program.sub.cmdaddqt_click.end
+
+
+program.sub.cmdactreq_click.start
+Variable.Local.iCT.Declare(Long)
+V.Local.i.Declare(Long)
+V.Local.sSqlQt.Declare(String)
+V.Local.sRecBy.Declare(String)
+V.Local.sQtDue.Declare(String)
+Variable.Local.sLen.Declare(Long)
+V.Local.i.Set(1)
+
+
+F.ODBC.Connection!Conx.OpenRecordsetRO("flex","Select * from ATG_3186_QTE_STATUS WHERE COMPLETE = 0 ORDER BY CUSTOMER_NAME ASC")
+F.ODBC.Connection!Conx.OpenRecordsetRO("rcount","Select Count(*) as iCT from ATG_3186_QTE_STATUS where complete = 0")
+
+F.Intrinsic.Control.If(V.ODBC.Conx!flex.EOF,"<>",True)
+	V.Local.iCT.Set(V.ODBC.Conx!rcount.FieldValLong!iCT)
+F.Intrinsic.Control.Else
+	V.Local.iCT.Set(1)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Math.Add(V.Local.iCT,1,V.Local.iCT)
+
+Gui.FlexGridForm.gsflexgrid.Cols(9)
+'Gui.FlexGridForm.gsflexgrid.RowHeight(1,600)
+Gui.FlexGridForm.gsflexgrid.Rows(V.Local.iCT)
+Gui.FlexGridForm.gsflexgrid.ColWidth(0,2800)
+Gui.FlexGridForm.gsflexgrid.ColWidth(1,1800)
+Gui.FlexGridForm.gsflexgrid.ColWidth(2,1800)
+Gui.FlexGridForm.gsflexgrid.ColWidth(3,1900)
+Gui.FlexGridForm.gsflexgrid.ColWidth(4,1800)
+Gui.FlexGridForm.gsflexgrid.ColWidth(5,1800)
+Gui.FlexGridForm.gsflexgrid.ColWidth(6,1500)
+Gui.FlexGridForm.gsflexgrid.ColWidth(7,1400)
+'Gui.FlexGridForm.gsflexgrid.ColWidth(8,1400)
+'Gui.FlexGridForm.gsflexgrid.ColWidth(9,1600)
+Gui.FlexGridForm.gsflexgrid.ColWidth(8,7200)
+Gui.FlexGridForm.gsflexgrid.BuildStyle(1,1,"format","alignment",2)
+Gui.FlexGridForm.gsflexgrid.BuildStyle(1,3,"format","alignment",2)
+Gui.FlexGridForm.gsflexgrid.BuildStyle(1,8,"format","alignment",2)
+'Gui.FlexGridForm.gsflexgrid.BuildStyle(1,0,"fontstyle","bold",True)
+'Gui.FlexGridForm.gsflexgrid.BuildStyle(1,3,"fontstyle","bold",True)
+'Gui.FlexGridForm.gsflexgrid.ApplyStyle(1,1)
+
+Gui.FlexGridForm.gsflexgrid.TextMatrix(0,0,"CUSTOMER")
+Gui.FlexGridForm.gsflexgrid.TextMatrix(1,0,"CUSTOMER JOB No.")
+Gui.FlexGridForm.gsflexgrid.TextMatrix(2,0,"RECEIVED BY")
+Gui.FlexGridForm.gsflexgrid.TextMatrix(3,0,"QUOTE DUE")
+Gui.FlexGridForm.gsflexgrid.TextMatrix(4,0,"MATERIAL QUOTED BY")
+Gui.FlexGridForm.gsflexgrid.TextMatrix(5,0,"CURRENTLY QUOTING")
+Gui.FlexGridForm.gsflexgrid.TextMatrix(6,0,"DATE QUOTE SENT")
+Gui.FlexGridForm.gsflexgrid.TextMatrix(7,0,"QUOTE NUMBER")
+'Gui.FlexGridForm.gsflexgrid.TextMatrix(8,0,"QUOTE AMOUNT")
+'Gui.FlexGridForm.gsflexgrid.TextMatrix(9,0,"QUOTE ACCEPTED?")
+Gui.FlexGridForm.gsflexgrid.TextMatrix(8,0,"COMMENTS")
+
+'Add db records to grid
+F.Intrinsic.Control.If(V.ODBC.Conx!flex.EOF,"<>",True)
+	F.Intrinsic.Control.For(V.Local.i,1,V.Local.iCT,1)
+		F.Intrinsic.Control.If(V.ODBC.Conx!flex.EOF,"=",True)
+			F.Intrinsic.Control.ExitFor(V.Local.i)
+		F.Intrinsic.Control.Else
+			Gui.FlexGridForm.gsflexgrid.TextMatrix(0,V.Local.i,V.ODBC.Conx!flex.FieldValTrim!CUSTOMER_NAME)
+			Gui.FlexGridForm.gsflexgrid.TextMatrix(1,V.Local.i,V.ODBC.Conx!flex.FieldValTrim!CUST_JOBNO)
+			F.Intrinsic.String.Concat(V.ODBC.Conx!flex.FieldValTrim!RECEIVED_BY,"  ",V.ODBC.Conx!flex.FieldValLTrim!RECEIVED_DATE,V.Local.sRecBy)
+			Gui.FlexGridForm.gsflexgrid.TextMatrix(2,V.Local.i,V.Local.sRecBy)
+			'Format Quote_Due date to string to enable sorting on flexgrid
+			F.Intrinsic.String.Len(V.ODBC.Conx!flex.FieldValString!QUOTE_DUE,V.Local.sLen)
+			F.Intrinsic.Control.If(V.Local.sLen,"<",12)
+				V.Local.sQtDue.Set("12:00:00 PM")
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Right(V.ODBC.Conx!flex.FieldValString!QUOTE_DUE,11,V.Local.sQtDue)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.String.Concat(V.ODBC.Conx!flex.FieldValPervasiveDate!QUOTE_DUE," ",V.Local.sQtDue,V.Local.sQtDue)
+			Gui.FlexGridForm.gsflexgrid.TextMatrix(3,V.Local.i,V.Local.sQtDue)
+			Gui.FlexGridForm.gsflexgrid.TextMatrix(4,V.Local.i,V.ODBC.Conx!flex.FieldValTrim!MATL_QUOTEDBY)
+			Gui.FlexGridForm.gsflexgrid.TextMatrix(5,V.Local.i,V.ODBC.Conx!flex.FieldValTrim!CURRENT_QUOTEDBY)
+			Gui.FlexGridForm.gsflexgrid.TextMatrix(7,V.Local.i,V.ODBC.Conx!flex.FieldValString!QUOTE_NO)
+			Gui.FlexGridForm.gsflexgrid.TextMatrix(8,V.Local.i,V.ODBC.Conx!flex.FieldValTrim!COMMENTS)
+			F.Intrinsic.String.Concat("Select * from V_QUOTE_LINES WHERE QUOTE_NO = '",V.ODBC.Conx!flex.FieldValTrim!QUOTE_NO,"'",V.Local.sSqlQt)
+			F.ODBC.Connection!Conx.OpenRecordsetRO("qt",V.Local.sSqlQt)
+			F.Intrinsic.Control.If(V.ODBC.Conx!qt.EOF,"<>",True)
+				'Gui.FlexGridForm.gsflexgrid.TextMatrix(8,V.Local.i,V.ODBC.Conx!qt.FieldValTrim!EXTENSION)
+				Gui.FlexGridForm.gsflexgrid.TextMatrix(6,V.Local.i,V.ODBC.Conx!qt.FieldValString!DATE_QUOTE)
+				'Gui.FlexGridForm.gsflexgrid.TextMatrix(9,V.Local.i,V.ODBC.Conx!qt.FieldValTrim!LIKELY_TO_WIN)
+				F.ODBC.Conx!qt.Close
+			F.Intrinsic.Control.Else
+				F.ODBC.Conx!qt.Close
+			F.Intrinsic.Control.EndIf
+			Gui.FlexGridForm.gsflexgrid.ApplyStyle(V.Local.i,1)
+		F.Intrinsic.Control.EndIf
+	F.ODBC.Conx!flex.MoveNext
+	F.Intrinsic.Control.Next(V.Local.i)
+F.Intrinsic.Control.Else
+	'F.ODBC.Conx!flex.Close
+F.Intrinsic.Control.EndIf
+
+'add fixed row after loading data into flex grid to give button like look
+Gui.FlexGridForm.gsflexgrid.FixedRows(1)
+Gui.QuoteStatus..Visible(False)
+Gui.FlexGridForm..Show(True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Program.Sub.ScreenSU.End
+
+
+program.sub.quotestatus_unload.start
+Function.ODBC.Connection!Conx.Close
+Function.Intrinsic.Control.End
+
+program.sub.quotestatus_unload.end
+
+
+program.sub.cmdsave_click.start
+Variable.Local.sSelect.Declare(String)
+Variable.Local.sCstNm.Declare(String)
+Variable.Local.sSqlCust.Declare(String)
+Variable.Local.sSqlProsp.Declare(String)
+Variable.Local.dTime.Declare(Date)
+Variable.Local.dCreate.Declare(Date)
+Variable.Local.dModify.Declare(Date)
+Variable.Local.yDate.Declare(String)
+Variable.Local.mDate.Declare(String)
+Variable.Local.dDate.Declare(String)
+Variable.Local.tDate.Declare(String)
+Variable.Local.dQtDue.Declare(String)
+Variable.Local.sCsJbNo.Declare(String)
+Variable.Local.sXtraTxt.Declare(String)
+
+Variable.Local.dTime.Set(V.Ambient.Time)
+F.Intrinsic.String.Concat(V.Ambient.Date," ",V.Local.dTime,V.Local.dCreate)
+F.Intrinsic.String.Left(V.Screen.QuoteStatus!datepickerQtDtDue.Value,2,V.Local.mDate)
+F.Intrinsic.String.Mid(V.Screen.QuoteStatus!datepickerQtDtDue.Value,4,2,V.Local.dDate)
+F.Intrinsic.String.Mid(V.Screen.QuoteStatus!datepickerQtDtDue.Value,7,4,V.Local.yDate)
+F.Intrinsic.String.Right(V.Screen.QuoteStatus!datepickerQtDtDue.Value,7,V.Local.tDate)
+F.Intrinsic.String.Concat(V.Local.yDate,"-",V.Local.mDate,"-",V.Local.dDate," 12:00PM",V.Local.dQtDue)
+'F.Intrinsic.UI.Msgbox(V.Local.dQtDue,"Date PSQL")
+
+
+'F.Intrinsic.String.Replace(V.Screen.QuoteStatus!datepickerQtDtDue.Value,"/","",V.Local.sDate)
+'F.Intrinsic.Date.ConvertDString(V.Local.sDate,"YYYY-MM-DD",V.Local.dQtDue)
+'F.Intrinsic.UI.Msgbox(V.Local.dQtDue,"DAte-Time")
+
+Function.Intrinsic.Control.If(V.Screen.QuoteStatus!txtCust.Text,"=","")
+	F.Intrinsic.UI.Msgbox("Customer No. cannot be blank, select from browser","Invalid Customer")
+Function.Intrinsic.Control.ElseIf(V.Screen.QuoteStatus!txtCstJbNo.Text,"=","")
+	F.Intrinsic.UI.Msgbox("Customer Job No. cannot be blank, please enter a job number")
+Function.Intrinsic.Control.Else
+	F.ODBC.Connection!Conx.OpenRecordsetRW("rst","Select * from ATG_3186_QTE_STATUS")
+	F.Intrinsic.String.Concat("Select * from V_CUSTOMER_MASTER WHERE CUSTOMER = '",V.Screen.QuoteStatus!txtCust.Text,"'",V.Local.sSqlCust)
+	F.Intrinsic.String.Concat("Select * from V_PROSPECT_MASTER WHERE PROSPECT = '",V.Screen.QuoteStatus!txtCust.Text,"'",V.Local.sSqlProsp)
+	F.ODBC.Connection!Conx.OpenRecordsetRO("cust",V.Local.sSqlCust)
+	F.ODBC.Connection!Conx.OpenRecordsetRO("prosp",V.Local.sSqlProsp)
+	F.Intrinsic.Control.If(Variable.ODBC.Conx!rst.EOF,"=",True)
+		F.Intrinsic.Control.If(V.ODBC.Conx!cust.EOF,"<>",True)
+			V.Local.sCstNm.Set(V.ODBC.Conx!cust.FieldValTrim!NAME_CUSTOMER)
+			F.ODBC.Conx!rst.AddNew
+			F.ODBC.Conx!rst.Set!CUSTOMER_NAME(V.Local.sCstNm)
+			F.ODBC.Conx!rst.Set!CUSTOMER(V.Screen.QuoteStatus!txtCust.Text)
+			F.Intrinsic.String.UCase(V.Screen.QuoteStatus!txtCstJbNo.Text,V.Local.sCsJbNo)
+			F.ODBC.Conx!rst.Set!CUST_JOBNO(V.Local.sCsJbNo)
+			F.ODBC.Conx!rst.Set!RECEIVED_BY(V.Screen.QuoteStatus!dlRcvBy.Text)
+			F.ODBC.Conx!rst.Set!RECEIVED_DATE(V.Ambient.Date)
+			F.ODBC.Conx!rst.Set!QUOTE_DUE(V.Screen.QuoteStatus!datepickerQtDtDue.Value)
+			F.ODBC.Conx!rst.Set!MATL_QUOTEDBY(V.Screen.QuoteStatus!dropdownlistUsQtBy.Text)
+			F.ODBC.Conx!rst.Set!CURRENT_QUOTEDBY(V.Screen.QuoteStatus!dropdownlistSP.Text)
+			F.ODBC.Conx!rst.Set!COMMENTS(V.Screen.QuoteStatus!mltxtComments.Text)
+			F.ODBC.Conx!rst.Set!MOD_DATE(V.Local.dCreate)
+			F.ODBC.Conx!rst.Set!MODBY(V.Caller.User)
+			F.ODBC.Conx!rst.Set!CREATE_DATE(V.Local.dCreate)
+			F.ODBC.Conx!rst.Set!CREATEBY(V.Caller.User)
+			F.ODBC.Conx!rst.Set!COMPLETE(False)
+			F.Intrinsic.String.UCase(V.Screen.QuoteStatus!txtXtrFld.Text,V.Local.sXtraTxt)
+			F.ODBC.Conx!rst.Set!EXTRA_FIELD(V.Local.sXtraTxt)
+			F.ODBC.Conx!rst.Update
+			'F.Intrinsic.UI.Msgbox("Quote Status Record Added","Quote Status")
+			Gui.QuoteStatus.txtCust.Text("")
+			Gui.QuoteStatus.txtCstJbNo.Text("")
+			Gui.QuoteStatus.dlRcvBy.Text("")
+			Gui.QuoteStatus.dropdownlistSP.Text("")
+			Gui.QuoteStatus.dropdownlistUsQtBy.Text("")
+			Gui.QuoteStatus.txtXtrFld.Text("")
+			Gui.QuoteStatus.mltxtComments.Text("")
+		F.Intrinsic.Control.ElseIf(V.ODBC.Conx!prosp.EOF,"<>",True)
+			V.Local.sCstNm.Set(V.ODBC.Conx!prosp.FieldValTrim!NAME_PROSPECT)
+			F.ODBC.Conx!rst.AddNew
+			F.ODBC.Conx!rst.Set!CUSTOMER_NAME(V.Local.sCstNm)
+			F.ODBC.Conx!rst.Set!CUSTOMER(V.Screen.QuoteStatus!txtCust.Text)
+			F.Intrinsic.String.UCase(V.Screen.QuoteStatus!txtCstJbNo.Text,V.Local.sCsJbNo)
+			F.ODBC.Conx!rst.Set!CUST_JOBNO(V.Local.sCsJbNo)
+			F.ODBC.Conx!rst.Set!RECEIVED_BY(V.Screen.QuoteStatus!dlRcvBy.Text)
+			F.ODBC.Conx!rst.Set!RECEIVED_DATE(V.Ambient.Date)
+			F.ODBC.Conx!rst.Set!QUOTE_DUE(V.Screen.QuoteStatus!datepickerQtDtDue.Value)
+			F.ODBC.Conx!rst.Set!MATL_QUOTEDBY(V.Screen.QuoteStatus!dropdownlistUsQtBy.Text)
+			F.ODBC.Conx!rst.Set!CURRENT_QUOTEDBY(V.Screen.QuoteStatus!dropdownlistSP.Text)
+			F.ODBC.Conx!rst.Set!COMMENTS(V.Screen.QuoteStatus!mltxtComments.Text)
+			F.ODBC.Conx!rst.Set!MOD_DATE(V.Local.dCreate)
+			F.ODBC.Conx!rst.Set!MODBY(V.Caller.User)
+			F.ODBC.Conx!rst.Set!CREATE_DATE(V.Local.dCreate)
+			F.ODBC.Conx!rst.Set!CREATEBY(V.Caller.User)
+			F.ODBC.Conx!rst.Set!COMPLETE(False)
+			F.Intrinsic.String.UCase(V.Screen.QuoteStatus!txtXtrFld.Text,V.Local.sXtraTxt)
+			F.ODBC.Conx!rst.Set!EXTRA_FIELD(V.Local.sXtraTxt)
+			F.ODBC.Conx!rst.Update
+			'F.Intrinsic.UI.Msgbox("Quote Status Record Added","Quote Status")
+			Gui.QuoteStatus.txtCust.Text("")
+			Gui.QuoteStatus.txtCstJbNo.Text("")
+			Gui.QuoteStatus.dlRcvBy.Text("")
+			Gui.QuoteStatus.dropdownlistSP.Text("")
+			Gui.QuoteStatus.dropdownlistUsQtBy.Text("")
+			Gui.QuoteStatus.txtXtrFld.Text("")
+			Gui.QuoteStatus.mltxtComments.Text("")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.If(V.Screen.QuoteStatus!Prospchk.Value,"=",0)
+				F.Intrinsic.UI.Msgbox("The Customer No. entered is not on File, please enter a valid customer","Invalid Customer No.")
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("The Prospect No. entered is not on File, please enter a valid prospect","Invalid Prospect No.")
+			Function.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.ODBC.Conx!cust.EOF,"<>",True)
+			V.Local.sCstNm.Set(V.ODBC.Conx!cust.FieldValTrim!NAME_CUSTOMER)
+			F.ODBC.Conx!rst.AddNew
+			F.ODBC.Conx!rst.Set!CUSTOMER_NAME(V.Local.sCstNm)
+			F.ODBC.Conx!rst.Set!CUSTOMER(V.Screen.QuoteStatus!txtCust.Text)
+			F.Intrinsic.String.UCase(V.Screen.QuoteStatus!txtCstJbNo.Text,V.Local.sCsJbNo)
+			F.ODBC.Conx!rst.Set!CUST_JOBNO(V.Local.sCsJbNo)
+			F.ODBC.Conx!rst.Set!RECEIVED_BY(V.Screen.QuoteStatus!dlRcvBy.Text)
+			F.ODBC.Conx!rst.Set!RECEIVED_DATE(V.Ambient.Date)
+			F.ODBC.Conx!rst.Set!QUOTE_DUE(V.Screen.QuoteStatus!datepickerQtDtDue.Value)
+			F.ODBC.Conx!rst.Set!MATL_QUOTEDBY(V.Screen.QuoteStatus!dropdownlistUsQtBy.Text)
+			F.ODBC.Conx!rst.Set!CURRENT_QUOTEDBY(V.Screen.QuoteStatus!dropdownlistSP.Text)
+			F.ODBC.Conx!rst.Set!COMMENTS(V.Screen.QuoteStatus!mltxtComments.Text)
+			F.ODBC.Conx!rst.Set!MOD_DATE(V.Local.dCreate)
+			F.ODBC.Conx!rst.Set!MODBY(V.Caller.User)
+			F.ODBC.Conx!rst.Set!CREATE_DATE(V.Local.dCreate)
+			F.ODBC.Conx!rst.Set!CREATEBY(V.Caller.User)
+			F.ODBC.Conx!rst.Set!COMPLETE(False)
+			F.Intrinsic.String.UCase(V.Screen.QuoteStatus!txtXtrFld.Text,V.Local.sXtraTxt)
+			F.ODBC.Conx!rst.Set!EXTRA_FIELD(V.Local.sXtraTxt)
+			F.ODBC.Conx!rst.Update
+			'F.Intrinsic.UI.Msgbox("Quote Status Record Added","Quote Status")
+			Gui.QuoteStatus.txtCust.Text("")
+			Gui.QuoteStatus.txtCstJbNo.Text("")
+			Gui.QuoteStatus.dlRcvBy.Text("")
+			Gui.QuoteStatus.dropdownlistSP.Text("")
+			Gui.QuoteStatus.dropdownlistUsQtBy.Text("")
+			Gui.QuoteStatus.txtXtrFld.Text("")
+			Gui.QuoteStatus.mltxtComments.Text("")
+		F.Intrinsic.Control.ElseIf(V.ODBC.Conx!prosp.EOF,"<>",True)
+			V.Local.sCstNm.Set(V.ODBC.Conx!prosp.FieldValTrim!NAME_PROSPECT)
+			F.ODBC.Conx!rst.AddNew
+			F.ODBC.Conx!rst.Set!CUSTOMER_NAME(V.Local.sCstNm)
+			F.ODBC.Conx!rst.Set!CUSTOMER(V.Screen.QuoteStatus!txtCust.Text)
+			F.Intrinsic.String.UCase(V.Screen.QuoteStatus!txtCstJbNo.Text,V.Local.sCsJbNo)
+			F.ODBC.Conx!rst.Set!CUST_JOBNO(V.Local.sCsJbNo)
+			F.ODBC.Conx!rst.Set!RECEIVED_BY(V.Screen.QuoteStatus!dlRcvBy.Text)
+			F.ODBC.Conx!rst.Set!RECEIVED_DATE(V.Ambient.Date)
+			F.ODBC.Conx!rst.Set!QUOTE_DUE(V.Screen.QuoteStatus!datepickerQtDtDue.Value)
+			F.ODBC.Conx!rst.Set!MATL_QUOTEDBY(V.Screen.QuoteStatus!dropdownlistUsQtBy.Text)
+			F.ODBC.Conx!rst.Set!CURRENT_QUOTEDBY(V.Screen.QuoteStatus!dropdownlistSP.Text)
+			F.ODBC.Conx!rst.Set!COMMENTS(V.Screen.QuoteStatus!mltxtComments.Text)
+			F.ODBC.Conx!rst.Set!MOD_DATE(V.Local.dCreate)
+			F.ODBC.Conx!rst.Set!MODBY(V.Caller.User)
+			F.ODBC.Conx!rst.Set!CREATE_DATE(V.Local.dCreate)
+			F.ODBC.Conx!rst.Set!CREATEBY(V.Caller.User)
+			F.ODBC.Conx!rst.Set!COMPLETE(False)
+			F.Intrinsic.String.UCase(V.Screen.QuoteStatus!txtXtrFld.Text,V.Local.sXtraTxt)
+			F.ODBC.Conx!rst.Set!EXTRA_FIELD(V.Local.sXtraTxt)
+			F.ODBC.Conx!rst.Update
+			'F.Intrinsic.UI.Msgbox("Quote Status Record Added","Quote Status")
+			Gui.QuoteStatus.txtCust.Text("")
+			Gui.QuoteStatus.txtCstJbNo.Text("")
+			Gui.QuoteStatus.dlRcvBy.Text("")
+			Gui.QuoteStatus.dropdownlistSP.Text("")
+			Gui.QuoteStatus.dropdownlistUsQtBy.Text("")
+			Gui.QuoteStatus.txtXtrFld.Text("")
+			Gui.QuoteStatus.mltxtComments.Text("")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.If(V.Screen.QuoteStatus!Prospchk.Value,"=",0)
+				F.Intrinsic.UI.Msgbox("The Customer No. entered is not on File, please enter a valid customer","Invalid Customer No.")
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("The Prospect No. entered is not on File, please enter a valid prospect","Invalid Prospect No.")
+			Function.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.ODBC.Conx!rst.Close
+F.ODBC.Conx!cust.Close
+F.Intrinsic.Control.EndIf
+
+
+	
+
+
+program.sub.cmdsave_click.end
+
+
+program.sub.flexgridform_unload.start
+F.ODBC.Conx!rcount.Close
+F.ODBC.Conx!flex.Close
+
+Gui.FlexGridForm..Visible(False)
+Gui.QuoteStatus..Visible(True)
+
+program.sub.flexgridform_unload.end
+
+
+program.sub.dlrcvby_click.start
+
+program.sub.dlrcvby_click.end
+
+
+program.sub.cmdpostdata_click.start
+V.Local.iRows.Declare(Long)
+V.Local.iRow.Declare(Long)
+V.Local.sCust.Declare(String)
+V.Local.sJob.Declare(String)
+V.Local.sQueryW.Declare(String)
+V.Local.sFlxText.Declare(String)
+V.Local.dQuoteDue.Declare(String)
+
+Gui.FlexGridForm.gsflexgrid.Commit
+
+F.Intrinsic.Math.Sub(V.Screen.FlexGridForm!gsflexgrid.Rows,1,V.Local.iRows)
+F.Intrinsic.Control.For(V.Local.iRow,1,V.Local.iRows,1)
+	Gui.FlexGridForm.gsflexgrid.GetTextMatrix(0,V.Local.iRow,V.Local.sCust)
+	Gui.FlexGridForm.gsflexgrid.GetTextMatrix(1,V.Local.iRow,V.Local.sJob)
+	F.Intrinsic.String.Replace(V.Local.sCust,"'","''",V.Local.sCust)
+	F.Intrinsic.String.Replace(V.Local.sJob,"'","''",V.Local.sJob)
+	F.Intrinsic.String.Concat("select * from ATG_3186_QTE_STATUS where customer_name = '",V.Local.sCust,"' and cust_jobno = '",V.Local.sJob,"'",V.Local.sQueryW)
+	F.ODBC.Connection!Conx.OpenRecordsetRW("upd",V.Local.sQueryW)
+	F.Intrinsic.Control.If(V.Local.iRow,">",V.Local.iRows)
+		F.Intrinsic.Control.ExitFor(V.Local.iRow)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.ODBC.Conx!upd.EOF,"<>",True)
+			Gui.FlexGridForm.gsflexgrid.GetTextMatrix(1,V.local.iRow,V.Local.sFlxText)
+			F.Intrinsic.String.Trim(V.Local.sFlxText,V.Local.sFlxText)
+			F.ODBC.Conx!upd.Set!CUST_JOBNO(V.Local.sFlxText)
+			Gui.FlexGridForm.gsflexgrid.GetTextMatrix(3,V.local.iRow,V.Local.dQuoteDue)
+			F.ODBC.Conx!upd.Set!QUOTE_DUE(V.Local.dQuoteDue)
+			Gui.FlexGridForm.gsflexgrid.GetTextMatrix(4,V.local.iRow,V.Local.sFlxText)
+			F.ODBC.Conx!upd.Set!MATL_QUOTEDBY(V.Local.sFlxText)
+			Gui.FlexGridForm.gsflexgrid.GetTextMatrix(5,V.local.iRow,V.Local.sFlxText)
+			F.ODBC.Conx!upd.Set!CURRENT_QUOTEDBY(V.Local.sFlxText)
+			Gui.FlexGridForm.gsflexgrid.GetTextMatrix(7,V.local.iRow,V.Local.sFlxText)
+			F.ODBC.Conx!upd.Set!QUOTE_NO(V.Local.sFlxText)
+			Gui.FlexGridForm.gsflexgrid.GetTextMatrix(8,V.local.iRow,V.Local.sFlxText)
+			F.Intrinsic.String.Trim(V.Local.sFlxText,V.Local.sFlxText)
+			F.ODBC.Conx!upd.Set!COMMENTS(V.Local.sFlxText)
+			F.ODBC.Conx!upd.Update
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	F.ODBC.Conx!upd.Close
+F.Intrinsic.Control.Next(V.Local.iRow)
+
+F.Intrinsic.UI.Msgbox("Changes have been updated!","Quote Status")
+
+
+
+
+
+program.sub.cmdpostdata_click.end
+
+
+program.sub.gsflexgrid_cellenter.start
+
+
+program.sub.gsflexgrid_cellenter.end
+
+
+program.sub.chkprospect_click.start
+Function.Intrinsic.Control.If(V.Screen.QuoteStatus!Prospchk.Value,"=",0)
+	Gui.QuoteStatus.Custlbl.Caption("Customer")
+Function.Intrinsic.Control.Else
+	Gui.QuoteStatus.Custlbl.Caption("Prospect")
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.chkprospect_click.end
+
+
+program.sub.gsflexgrid_mouseup.start
+F.Intrinsic.Control.If(V.Args.mouserow,=,0)
+	Gui.FlexGridForm.gsflexgrid.sortcolumn(V.Args.mousecol,0)
+F.Intrinsic.Control.EndIf
+
+program.sub.gsflexgrid_mouseup.end
+
+
+program.sub.cmdflx_click.start
+
+program.sub.cmdflx_click.end
+
+
+program.sub.cmddelete_click.start
+Variable.Local.sRet.Declare(String)
+Variable.Local.sMsg.Declare(String)
+Variable.Local.sTitles.Declare(String)
+Variable.Local.iWidths.Declare(Long)
+Variable.Local.aRet.Declare(String)
+Variable.Local.sSQL.Declare(String)
+
+Function.Intrinsic.String.Split("Customer*!*Customer Name*!*Job Number*!*Comments","*!*",V.Local.sTitles)
+Function.Intrinsic.String.Split("1000*!*3000*!*2000*!*4000","*!*",V.Local.iWidths)
+Function.Intrinsic.UI.Browser("Select Quote Record","conx","Select Customer, Customer_name, Cust_JobNo, Comments from ATG_3186_QTE_STATUS order by Customer",V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+Function.Intrinsic.Control.If(V.Local.sRet,"<>","***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet(0),"*!*",V.Local.aRet)
+	Function.Intrinsic.String.Concat("Select * from ATG_3186_QTE_STATUS where customer = '",V.Local.aRet(0),"' and Cust_JobNo = '",V.Local.aRet(2),"' and Comments = '",V.Local.aRet(3),"'",V.Local.sSQL)
+	Function.ODBC.Connection!Conx.OpenRecordsetRW("Del",V.Local.sSQL)
+	Function.ODBC.Conx!Del.Delete
+	Function.Intrinsic.UI.Msgbox("Record Deleted","Delete Status")
+	Function.ODBC.Conx!Del.Close
+Function.Intrinsic.Control.EndIf
+
+	
+
+
+program.sub.cmddelete_click.end
+
+
+
