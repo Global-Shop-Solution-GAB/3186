@@ -1,0 +1,34 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Hook #17330
+
+Variable.Local.sComp.Declare(String)
+Variable.Local.sQuote.Declare(String)
+
+Function.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+F.Intrinsic.String.LPad(V.Passed.000002,"0",7,V.Local.sQuote)
+F.Intrinsic.String.Concat("Select * from ATG_3186_QTE_STATUS WHERE customer = '",V.Passed.000109,"' and quote_no = '",V.Local.sQuote,"'",V.Local.sComp)
+Function.ODBC.connection!conx.OpenRecordsetRW("rst",V.Local.sComp)
+
+'F.Intrinsic.Debug.ShowCallerInfo
+Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,"=",True)
+	F.Intrinsic.UI.Msgbox("Quote Number not on Status Form, add record","Quote Status")
+Function.Intrinsic.Control.Else
+	F.ODBC.conx!rst.Set!COMPLETE(True)
+	F.ODBC.conx!rst.Set!COMPLETE_DATE(V.Ambient.Date)
+	F.ODBC.conx!rst.Update
+	F.ODBC.conx!rst.Close
+	F.ODBC.Connection!conx.Close
+Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.End
+
+
+Program.Sub.Main.End
+
+
